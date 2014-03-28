@@ -22,6 +22,9 @@ DISABLE_AUTO_UPDATE="true"
 # Uncomment following line if you want disable red dots displayed while waiting for completion
 # DISABLE_COMPLETION_WAITING_DOTS="true"
 
+# I HATE CORRECTION!
+DISABLE_CORRECTION="true"
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git colorize debian golang mercurial perl tmux)
