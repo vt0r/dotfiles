@@ -22,14 +22,16 @@ DISABLE_AUTO_UPDATE="true"
 # Uncomment following line if you want disable red dots displayed while waiting for completion
 # DISABLE_COMPLETION_WAITING_DOTS="true"
 
-# I HATE CORRECTION!
-DISABLE_CORRECTION="true"
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git colorize debian golang mercurial perl tmux)
 
 source $ZSH/oh-my-zsh.sh
+
+# I HATE CORRECTION!
+DISABLE_CORRECTION="true"
+unsetopt correct
+unsetopt correct_all
 
 # Customize to your needs...
 export PATH=/home/salvatore/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-7-oracle/bin:/usr/lib/jvm/java-7-oracle/db/bin:/usr/lib/jvm/java-7-oracle/jre/bin:/home/salvatore/bin
