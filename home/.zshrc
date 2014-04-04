@@ -24,7 +24,7 @@ DISABLE_AUTO_UPDATE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git colorize debian golang mercurial perl tmux)
+plugins=(git colorize debian golang mercurial perl tmux ruby rvm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -74,3 +74,5 @@ fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 source "$HOME/.zsh.nonpublic"
 
 ## END
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
