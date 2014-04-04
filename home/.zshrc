@@ -34,7 +34,7 @@ unsetopt correct
 unsetopt correct_all
 
 # Customize to your needs...
-export PATH=/home/salvatore/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-7-oracle/bin:/usr/lib/jvm/java-7-oracle/db/bin:/usr/lib/jvm/java-7-oracle/jre/bin:/home/salvatore/bin
+export PATH=/home/salvatore/.rvm/gems/ruby-2.1.1/bin:/home/salvatore/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-7-oracle/bin:/usr/lib/jvm/java-7-oracle/db/bin:/usr/lib/jvm/java-7-oracle/jre/bin
 
 ## Imported from original .bashrc
 export TERM="xterm-256color"
@@ -74,5 +74,3 @@ fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 source "$HOME/.zsh.nonpublic"
 
 ## END
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
