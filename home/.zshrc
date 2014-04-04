@@ -66,6 +66,9 @@ function sbin() {
 
 alias gpg="gpg2"
 
+# Use Rubbie 2.1.1
+rvm use ruby-2.1.1 >/dev/null 2>&1
+
 # Homeshick
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
