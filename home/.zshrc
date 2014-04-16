@@ -47,8 +47,8 @@ alias tmux="tmux -2"
 # Tmux
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
-# Dircolors
-eval `dircolors ~/dircolors-solarized/dircolors.ansi-dark`
+# Dircolors - ignoring output because Mac has no coreutils
+eval $(dircolors ~/dircolors-solarized/dircolors.ansi-dark >/dev/null 2>&1)
 
 # Password generator
 alias pw="gopwgen a"
