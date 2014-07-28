@@ -33,6 +33,9 @@ DISABLE_CORRECTION="true"
 unsetopt correct
 unsetopt correct_all
 
+# Brace expansion
+setopt BRACE_CCL
+
 # Customize to your needs...
 export PATH=/home/salvatore/.rvm/gems/ruby-2.1.1/bin:/home/salvatore/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-7-oracle/bin:/usr/lib/jvm/java-7-oracle/db/bin:/usr/lib/jvm/java-7-oracle/jre/bin
 
