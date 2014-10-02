@@ -94,6 +94,16 @@ endfunction
 :highlight ExtraWhitespace ctermbg=darkred guibg=darkred
 :match ExtraWhitespace /\s\+$\| \+\ze\t/
 
+" Diff between current buffer and saved file
+function! s:DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+com! DiffSaved call s:DiffWithSaved()
+
 """ END Sal Stuff
 
 " Vundle/Powerline stuff
