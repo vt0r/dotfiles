@@ -73,11 +73,8 @@ function sbin() {
     rm -f $$.sbin.me
 }
 
-# Another one to verify Mac vs Linux for...
-if [ "$(uname -s)" != "Darwin" ]
-then
-    alias gpg="gpg2"
-fi
+# Use gpg2 always (even with Homebrew)
+alias gpg="gpg2"
 
 # Use Rubbie 2.1.1
 rvm use ruby-2.1.1 >/dev/null 2>&1
