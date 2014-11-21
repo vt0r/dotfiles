@@ -32,9 +32,9 @@ set expandtab
 " Be smart when using tabs ;)
 set smarttab
 
-" 1 tab == 2 spaces
-set shiftwidth=2
-set tabstop=2
+" 1 tab == 4 spaces
+set shiftwidth=4
+set tabstop=4
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
@@ -78,14 +78,14 @@ nnoremap <S-F11> :set list!<CR>
 nnoremap <S-F10> :call ToggleTabIndent()<CR>
 function ToggleTabIndent()
     if &expandtab
-        set tabstop=2
-        set shiftwidth=2
-        set softtabstop=2
-        set expandtab!
-    else
         set tabstop=4
         set shiftwidth=4
         set softtabstop=4
+        set expandtab!
+    else
+        set tabstop=2
+        set shiftwidth=2
+        set softtabstop=2
         set expandtab
     endif
 endfunction
