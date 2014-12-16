@@ -128,6 +128,7 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'saltstack/salt-vim'
 Bundle 'puppetlabs/puppet-syntax-vim'
 Bundle 'stephenmckinney/vim-solarized-powerline'
+Bundle 'fatih/vim-go'
 
 let g:Powerline_colorscheme='solarized256_dark'
 
