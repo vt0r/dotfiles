@@ -36,13 +36,10 @@ unsetopt correct_all
 # Brace expansion
 setopt BRACE_CCL
 
-# Customize to your needs...
-export PATH=/home/salvatore/.rvm/gems/ruby-2.1.1/bin:/home/salvatore/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-7-oracle/bin:/usr/lib/jvm/java-7-oracle/db/bin:/usr/lib/jvm/java-7-oracle/jre/bin
-
 ## Imported from original .bashrc
 export TERM="xterm-256color"
 export PATH=${PATH}:~/bin
-export LANG=en_US.UTF-8
+export LANG=en_US.utf8
 export LESSCHARSET=utf-8
 export PERL_UTF8_LOCALE=1 PERL_UNICODE=AS
 alias tmux="tmux -2"
@@ -76,14 +73,16 @@ function sbin() {
 # Use gpg2 always (even with Homebrew)
 alias gpg="gpg2"
 
-# Use Rubbie 2.1.1
-rvm use ruby-2.1.1 >/dev/null 2>&1
-
 # Homeshick
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
 # Stuff that isn't public and won't be tracked in any repo
+# The reason I'm not doing a test for this file is because
+# I want to ensure an error is printed if it doesn't exist
 source "$HOME/.zsh.nonpublic"
 
 ## END
+

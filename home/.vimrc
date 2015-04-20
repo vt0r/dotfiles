@@ -1,4 +1,53 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" Powerline specific
+set laststatus=2   " Always show the statusline
+set encoding=utf-8 " Necessary to show Unicode glyphs
+set t_Co=256
+let g:Powerline_symbols = 'fancy'
+set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline\ 11
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" My Bundles here:
+"
+" original repos on github
+Plugin 'saltstack/salt-vim'
+Plugin 'puppetlabs/puppet-syntax-vim'
+Plugin 'stephenmckinney/vim-solarized-powerline'
+Plugin 'fatih/vim-go'
+
+let g:Powerline_colorscheme='solarized256_dark'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
 """ BEGIN Sal Stuff
+
+" New global Powerline installation method (using pip)
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 
 " Return to last edit position when opening files
 autocmd BufReadPost *
@@ -11,8 +60,6 @@ set viminfo^=%
 
 " Highlight syntax
 syntax enable
-set nocompatible               " be iMproved
-filetype off                   " required!
 
 " Nice theme for dark terminals - solarized dark
 let g:solarized_termcolors = 256
@@ -32,9 +79,9 @@ set expandtab
 " Be smart when using tabs ;)
 set smarttab
 
-" 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
+" 1 tab == 2 spaces
+set shiftwidth=2
+set tabstop=2
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
@@ -105,40 +152,3 @@ endfunction
 com! DiffSaved call s:DiffWithSaved()
 
 """ END Sal Stuff
-
-" Vundle/Powerline stuff
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" Powerline specific
-set laststatus=2   " Always show the statusline
-set encoding=utf-8 " Necessary to show Unicode glyphs
-set t_Co=256
-let g:Powerline_symbols = 'fancy'
-set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline\ 11
-
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
-
-" My Bundles here:
-"
-" original repos on github
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'saltstack/salt-vim'
-Bundle 'puppetlabs/puppet-syntax-vim'
-Bundle 'stephenmckinney/vim-solarized-powerline'
-Bundle 'fatih/vim-go'
-
-let g:Powerline_colorscheme='solarized256_dark'
-
-filetype plugin indent on     " required!
-"
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
