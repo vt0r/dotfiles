@@ -152,4 +152,7 @@ function! s:DiffWithSaved()
 endfunction
 com! DiffSaved call s:DiffWithSaved()
 
+" Shorten status messages to stop 'Hit ENTER to continue' prompt
+set shortmess=a
+
 """ END Sal Stuff
