@@ -1,42 +1,30 @@
 [submodule "dircolors-solarized"]
-	path = dircolors-solarized
-	url = https://github.com/seebi/dircolors-solarized.git
+  path = dircolors-solarized
+  url = https://github.com/seebi/dircolors-solarized.git
 [submodule "solarized"]
-	path = solarized
-	url = https://github.com/altercation/solarized.git
+  path = solarized
+  url = https://github.com/altercation/solarized.git
 [submodule "tmux-colors-solarized"]
-	path = tmux-colors-solarized
-	url = https://github.com/seebi/tmux-colors-solarized.git
-[submodule "tmux-powerline"]
-	path = tmux-powerline
-	url = https://github.com/erikw/tmux-powerline.git
-[submodule "vim-powerline"]
-	path = vim-powerline
-	url = https://github.com/Lokaltog/vim-powerline.git
+  path = tmux-colors-solarized
+  url = https://github.com/seebi/tmux-colors-solarized.git
 [submodule ".vim/bundle/Vundle.vim"]
-	path = .vim/bundle/Vundle.vim
-	url = https://github.com/gmarik/Vundle.vim.git
+  path = .vim/bundle/Vundle.vim
+  url = https://github.com/gmarik/Vundle.vim.git
 [submodule ".vim/bundle/puppet-syntax-vim"]
-	path = .vim/bundle/puppet-syntax-vim
-	url = https://github.com/puppetlabs/puppet-syntax-vim.git
+  path = .vim/bundle/puppet-syntax-vim
+  url = https://github.com/puppetlabs/puppet-syntax-vim.git
 [submodule ".vim/bundle/salt-vim"]
-	path = .vim/bundle/salt-vim
-	url = https://github.com/saltstack/salt-vim.git
-[submodule ".vim/bundle/vim-colors-solarized"]
-	path = .vim/bundle/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
-[submodule ".vim/bundle/vim-powerline"]
-	path = .vim/bundle/vim-powerline
-	url = https://github.com/Lokaltog/vim-powerline.git
+  path = .vim/bundle/salt-vim
+  url = https://github.com/saltstack/salt-vim.git
 [submodule ".vim/bundle/vim-solarized-powerline"]
-	path = .vim/bundle/vim-solarized-powerline
-	url = https://github.com/stephenmckinney/vim-solarized-powerline.git
+  path = .vim/bundle/vim-solarized-powerline
+  url = https://github.com/stephenmckinney/vim-solarized-powerline.git
 [submodule ".oh-my-zsh"]
-	path = .oh-my-zsh
-	url = git@github.com:vt0r/oh-my-zsh.git
+  path = .oh-my-zsh
+  url = git@github.com:vt0r/oh-my-zsh.git
 [submodule ".vim/bundle/vim-go"]
-	path = .vim/bundle/vim-go
-	url = https://github.com/fatih/vim-go.git
+  path = .vim/bundle/vim-go
+  url = https://github.com/fatih/vim-go.git
 [submodule ".vim/bundle/vim-chef"]
   path = .vim/bundle/vim-chef
   url = https://github.com/t9md/vim-chef.git

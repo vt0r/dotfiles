@@ -12,7 +12,7 @@ set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 set t_Co=256
 let g:Powerline_symbols = 'fancy'
-set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline\ 11
+set guifont=Input\ Mono\ Narrow\ 9
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
