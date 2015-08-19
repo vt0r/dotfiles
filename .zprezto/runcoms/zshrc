@@ -1,0 +1,73 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+
+# I HATE CORRECTION!
+DISABLE_CORRECTION="true"
+unsetopt CORRECT
+unsetopt correct
+unsetopt correct_all
+
+# Brace expansion
+setopt BRACE_CCL
+
+# Though I understand why this mark exists, I hate it.
+PROMPT_EOL_MARK=" "
+
+## Imported from original .bashrc
+export TERM="xterm-256color"
+export PATH=${PATH}:~/bin:/usr/local/bin:/usr/local/sbin
+export LANG=en_US.utf8
+export LESSCHARSET=utf-8
+export PERL_UTF8_LOCALE=1 PERL_UNICODE=AS
+alias tmux="tmux -2"
+
+# Tmux
+PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+
+# Dircolors
+#if [ "$(uname -s)" = "Darwin" ]
+#then
+#    eval $(gdircolors ~/dircolors-solarized/dircolors.ansi-dark)
+#    alias ls="gls --color=auto"
+#else
+eval $(dircolors ~/dircolors-solarized/dircolors.ansi-dark)
+#fi
+
+# Password generator
+alias pw="gopwgen a"
+
+# Kill the SC daemon
+alias sckill="killall -9 scdaemon"
+alias killsc="killall -9 scdaemon"
+
+# Sbin
+function sbin() {
+    cat > /tmp/$$.sbin.me
+    curl -sd "$(cat /tmp/$$.sbin.me)" https://sbin.me/documents | awk -F '"' '{print "https://sbin.me/"$4}'
+    rm -f $$.sbin.me
+}
+
+# Use gpg2 always (even with Homebrew)
+alias gpg="gpg2"
+
+# Homeshick
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
+
+# Stuff that isn't public and won't be tracked in any repo
+# The reason I'm not doing a test for this file is because
+# I want to ensure an error is printed if it doesn't exist
+source "$HOME/.zsh.nonpublic"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
