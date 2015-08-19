@@ -1,0 +1,53 @@
+# Start up the gpg-agent if it's not already running
+if ! gpg-connect-agent --quiet /bye >/dev/null 2>&1 ; then
+  /usr/local/bin/gpg-agent --options ${HOME}/.gnupg/gpg-agent.conf --daemon --enable-ssh-support >/dev/null 2>&1
+fi
+
+# Work with new 2.1.x GPG agent
+export SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh
+
+# Smartcard quick eject
+AGENTSOCK=${HOME}/.gnupg/S.gpg-agent
+alias sceject='/usr/local/bin/gpg-connect-agent -S $AGENTSOCK "scd killscd" "scd bye" /bye'
+alias killsc='/usr/local/bin/gpg-connect-agent -S $AGENTSOCK "scd killscd" "scd bye" /bye'
+
+# PIP and Powerline
+if [ -d "${HOME}/.local/bin" ]; then
+  PATH="${PATH}:${HOME}/.local/bin"
+fi
+export POWERLINE_COMMAND="powerline"
+
+# Umask
+umask 022
+
+# GOPATH
+export GOPATH="${HOME}/go"
+export PATH="${PATH}:${GOPATH}/bin"
+
+# AWS things
+source ${HOME}/bin/aws_zsh_completer.sh
+export AWS_CONFIG_FILE="${HOME}/.awsrc"
+
+# Vim cat/less
+alias vcat="/usr/local/bin/vimcat"
+alias vless="/usr/local/bin/vimpager"
+
+# Droid platform-tools permissions
+alias adb="sudo ${HOME}/android-sdk-linux/platform-tools/adb"
+alias fastboot="sudo ${HOME}/android-sdk-linux/platform-tools/fastboot"
+
+# Android SDK generic
+export PATH="${PATH}:${HOME}/android-sdk-linux/tools:${HOME}/android-sdk-linux/platform-tools"
+export ANDROID_HOME=${HOME}/android-sdk-linux
+
+# Credentials that apparently MUST be in the env :(
+source ${HOME}/.zsh.supersekrit
+
+# Building CM within a year
+export USE_CCACHE=1
+
+# Vagrant via libvirt
+export VAGRANT_DEFAULT_PROVIDER=libvirt
+
+# Chef knife dev
+alias knife-dev="knife \"$*\" --config ${HOME}/.chef/knife-dev.rb"

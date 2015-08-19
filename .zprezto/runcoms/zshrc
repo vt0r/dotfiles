@@ -65,9 +65,7 @@ alias gpg="gpg2"
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 
-# Stuff that isn't public and won't be tracked in any repo
-# The reason I'm not doing a test for this file is because
-# I want to ensure an error is printed if it doesn't exist
-source "$HOME/.zsh.nonpublic"
+# Super-local stuff that will only clog up the actual .zshrc
+source "$HOME/.zshrc.extra"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
