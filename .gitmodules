@@ -19,18 +19,12 @@
 [submodule ".vim/bundle/vim-solarized-powerline"]
   path = .vim/bundle/vim-solarized-powerline
   url = https://github.com/stephenmckinney/vim-solarized-powerline.git
-[submodule ".oh-my-zsh"]
-  path = .oh-my-zsh
-  url = git@github.com:vt0r/oh-my-zsh.git
 [submodule ".vim/bundle/vim-go"]
   path = .vim/bundle/vim-go
   url = https://github.com/fatih/vim-go.git
 [submodule ".vim/bundle/vim-chef"]
   path = .vim/bundle/vim-chef
   url = https://github.com/t9md/vim-chef.git
-[submodule ".zprezto"]
-  path = .zprezto
-  url = https://github.com/sorin-ionescu/prezto.git
 [submodule ".zprezto/modules/completion/external"]
   path = .zprezto/modules/completion/external
   url = https://github.com/zsh-users/zsh-completions.git
