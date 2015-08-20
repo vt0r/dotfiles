@@ -45,7 +45,7 @@ eval $(dircolors ~/dircolors-solarized/dircolors.ansi-dark)
 #fi
 
 # Password generator
-alias pw="gopwgen a"
+alias pw="gopwgen -a"
 
 # Kill the SC daemon
 alias sckill="killall -9 scdaemon"
