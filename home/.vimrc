@@ -25,6 +25,7 @@ Plugin 'puppetlabs/puppet-syntax-vim'
 Plugin 'stephenmckinney/vim-solarized-powerline'
 Plugin 'fatih/vim-go'
 Plugin 't9md/vim-chef'
+Plugin 'chrisbra/csv.vim'
 
 let g:Powerline_colorscheme='solarized256_dark'
 
@@ -154,5 +155,8 @@ com! DiffSaved call s:DiffWithSaved()
 
 " Shorten status messages to stop 'Hit ENTER to continue' prompt
 set shortmess=a
+
+" Add golint support (requires installing golint to the $GOPATH)
+set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 
 """ END Sal Stuff

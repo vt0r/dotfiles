@@ -22,7 +22,8 @@ umask 022
 
 # GOPATH
 export GOPATH="${HOME}/go"
-export PATH="${PATH}:${GOPATH}/bin"
+export PATH="${PATH}:/usr/local/go/bin:${GOPATH}/bin"
+export GOROOT="/usr/local/go"
 
 # AWS things
 source ${HOME}/bin/aws_zsh_completer.sh
