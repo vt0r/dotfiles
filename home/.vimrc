@@ -26,6 +26,7 @@ Plugin 'stephenmckinney/vim-solarized-powerline'
 Plugin 'fatih/vim-go'
 Plugin 't9md/vim-chef'
 Plugin 'chrisbra/csv.vim'
+Plugin 'rust-lang/rust.vim'
 
 let g:Powerline_colorscheme='solarized256_dark'
 

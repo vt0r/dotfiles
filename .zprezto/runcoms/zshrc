@@ -55,7 +55,7 @@ alias killsc="killall -9 scdaemon"
 function sbin() {
     cat > /tmp/$$.sbin.me
     curl -sd "$(cat /tmp/$$.sbin.me)" https://sbin.me/documents | awk -F '"' '{print "https://sbin.me/"$4}'
-    rm -f $$.sbin.me
+    rm -f /tmp/$$.sbin.me
 }
 
 # Use gpg2 always (even with Homebrew)
