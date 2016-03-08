@@ -22,7 +22,7 @@ Plugin 'gmarik/Vundle.vim'
 " original repos on github
 Plugin 'stephenmckinney/vim-solarized-powerline'
 Plugin 'fatih/vim-go'
-Plugin 't9md/vim-chef'
+"Plugin 't9md/vim-chef'
 Plugin 'chrisbra/csv.vim'
 Plugin 'rust-lang/rust.vim'
 

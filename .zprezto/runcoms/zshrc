@@ -65,6 +65,9 @@ alias gpg="gpg2"
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 
+# Also hate this "safety" feature
+setopt CLOBBER
+
 # Super-local stuff that will only clog up the actual .zshrc
 source "$HOME/.zshrc.extra"
 
