@@ -15,9 +15,21 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'fatih/vim-go'
-Plugin 't9md/vim-chef'
+Plugin 'dougireton/vim-chef'
 Plugin 'chrisbra/csv.vim'
 Plugin 'rust-lang/rust.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'Raimondi/delimitMate'
+" Syntastic stuff
+Plugin 'scrooloose/syntastic'
+let g:syntastic_error_symbol = '✘'
+let g:syntastic_warning_symbol = "▲"
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
