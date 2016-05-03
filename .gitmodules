@@ -64,3 +64,6 @@
 [submodule ".vim/bundle/delimitMate"]
 	path = .vim/bundle/delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
+[submodule ".vim/bundle/vim-chef"]
+	path = .vim/bundle/vim-chef
+	url = git://github.com/dougireton/vim-chef.git
