@@ -22,9 +22,6 @@
 [submodule ".vim/bundle/vim-go"]
   path = .vim/bundle/vim-go
   url = https://github.com/fatih/vim-go.git
-[submodule ".vim/bundle/vim-chef"]
-  path = .vim/bundle/vim-chef
-  url = https://github.com/t9md/vim-chef.git
 [submodule ".vim/bundle/rust.vim"]
   path = .vim/bundle/rust.vim
   url = https://github.com/rust-lang/rust.vim.git
@@ -49,3 +46,12 @@
 [submodule ".zprezto/modules/syntax-highlighting/external"]
   path = .zprezto/modules/syntax-highlighting/external
   url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule ".vim/bundle/vim-airline-themes"]
+	path = .vim/bundle/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes.git
+[submodule ".vim/bundle/vim-airline"]
+	path = .vim/bundle/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule ".vim/bundle/vim-chef"]
+	path = .vim/bundle/vim-chef
+	url = https://github.com/t9md/vim-chef.git
