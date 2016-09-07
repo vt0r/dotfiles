@@ -4,7 +4,8 @@ if ! gpg-connect-agent --quiet /bye >/dev/null 2>&1 ; then
 fi
 
 # Work with new 2.1.x GPG agent
-export SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh
+#export SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh
+export SSH_AUTH_SOCK=/run/user/1000/gnupg/S.gpg-agent.ssh
 
 # Smartcard quick eject
 AGENTSOCK=${HOME}/.gnupg/S.gpg-agent
@@ -26,8 +27,8 @@ export PATH="/usr/local/go/bin:${GOPATH}/bin:${PATH}"
 export GOROOT="/usr/local/go"
 
 # AWS things
-source ${HOME}/bin/aws_zsh_completer.sh
-export AWS_CONFIG_FILE="${HOME}/.awsrc"
+#source ${HOME}/bin/aws_zsh_completer.sh
+#export AWS_CONFIG_FILE="${HOME}/.awsrc"
 
 # Vim cat/less
 alias vcat="/usr/local/bin/vimcat"
@@ -42,7 +43,7 @@ export PATH="${PATH}:${HOME}/android-sdk-linux/tools:${HOME}/android-sdk-linux/p
 export ANDROID_HOME=${HOME}/android-sdk-linux
 
 # Credentials that apparently MUST be in the env :(
-source ${HOME}/.zsh.supersekrit
+source ${HOME}/.zsh.supersekrit >/dev/null 2>&1
 
 # Building CM within a year
 export USE_CCACHE=1
@@ -51,7 +52,7 @@ export USE_CCACHE=1
 export VAGRANT_DEFAULT_PROVIDER=libvirt
 
 # Chef knife dev
-alias knife-dev="knife \"$*\" --config ${HOME}/.chef/knife-dev.rb"
+#alias knife-dev="knife \"$*\" --config ${HOME}/.chef/knife-dev.rb"
 
 # C2F and F2C
 c2f() {
