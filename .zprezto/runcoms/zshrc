@@ -13,7 +13,7 @@ fi
 # Customize to your needs...
 
 # I HATE CORRECTION!
-DISABLE_CORRECTION="true"
+export DISABLE_CORRECTION="true"
 unsetopt CORRECT
 unsetopt correct
 unsetopt correct_all
@@ -51,13 +51,6 @@ alias pw="gopwgen -a"
 alias sckill="killall -9 scdaemon"
 alias killsc="killall -9 scdaemon"
 
-# Sbin
-function sbin() {
-    cat > /tmp/$$.sbin.me
-    curl -sd "$(cat /tmp/$$.sbin.me)" https://sbin.me/documents | awk -F '"' '{print "https://sbin.me/"$4}'
-    rm -f /tmp/$$.sbin.me
-}
-
 # Use gpg2 always (even with Homebrew)
 alias gpg="gpg2"
 
@@ -71,4 +64,6 @@ setopt CLOBBER
 # Super-local stuff that will only clog up the actual .zshrc
 source "$HOME/.zshrc.extra"
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# rbenv stuff
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
