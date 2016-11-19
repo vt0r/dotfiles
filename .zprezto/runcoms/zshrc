@@ -36,13 +36,13 @@ alias tmux="tmux -2"
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
 # Dircolors
-#if [ "$(uname -s)" = "Darwin" ]
-#then
-#    eval $(gdircolors ~/dircolors-solarized/dircolors.ansi-dark)
-#    alias ls="gls --color=auto"
-#else
+if [ "$(uname -s)" = "Darwin" ]
+then
+    eval $(gdircolors ~/dircolors-solarized/dircolors.ansi-dark)
+    alias ls="/usr/local/bin/gls --color=auto"
+else
 eval $(dircolors ~/dircolors-solarized/dircolors.ansi-dark)
-#fi
+fi
 
 # Password generator
 alias pw="gopwgen -a"
