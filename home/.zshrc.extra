@@ -29,15 +29,24 @@ export PATH="/usr/local/go/bin:${GOPATH}/bin:${PATH}"
 export GOROOT="/usr/local/go"
 
 # Vim cat/less
-alias vcat="/usr/local/bin/vimcat"
-alias vless="/usr/local/bin/vimpager"
+if [ -e /usr/local/bin/vimcat ]; then
+  alias vcat="/usr/local/bin/vimcat"
+  alias vless="/usr/local/bin/vimpager"
+fi
 
 # Android SDK generic
-export PATH="${PATH}:${HOME}/android-sdk-linux/tools:${HOME}/android-sdk-linux/platform-tools"
-export ANDROID_HOME=${HOME}/android-sdk-linux
+if [ "$(uname -s)" = "Darwin" ]; then
+  OS="macosx"
+else
+  OS="linux"
+fi
+export PATH="${PATH}:${HOME}/android-sdk-${OS}/tools:${HOME}/android-sdk-${OS}/platform-tools"
+export ANDROID_HOME=${HOME}/android-sdk-${OS}
 
 # Credentials that apparently MUST be in the env :(
-#source ${HOME}/.zsh.supersekrit >/dev/null 2>&1
+if [ -e ${HOME}/.zsh.supersekrit ]; then
+  source ${HOME}/.zsh.supersekrit >/dev/null 2>&1
+fi
 
 # Building CM within a year
 export USE_CCACHE=1

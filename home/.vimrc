@@ -1,5 +1,6 @@
 " Vundle stuff below
 set nocompatible "Break vi
+set backspace=2 "Hopefully works on Linux
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
