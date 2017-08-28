@@ -50,9 +50,6 @@ alias pw="gopwgen -a"
 alias sckill="killall -9 scdaemon"
 alias killsc="killall -9 scdaemon"
 
-# Use gpg2 always (even with Homebrew)
-alias gpg="gpg2"
-
 # Homeshick
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
@@ -66,3 +63,9 @@ source "$HOME/.zshrc.extra"
 # rbenv stuff
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+PATH="/home/salvatore/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/salvatore/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/salvatore/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/salvatore/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/salvatore/perl5"; export PERL_MM_OPT;

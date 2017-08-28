@@ -34,14 +34,16 @@ if [ -e /usr/local/bin/vimcat ]; then
   alias vless="/usr/local/bin/vimpager"
 fi
 
-# Android SDK generic
+# Android SDK/NDK generic
 if [ "$(uname -s)" = "Darwin" ]; then
   OS="macosx"
 else
   OS="linux"
 fi
-export PATH="${PATH}:${HOME}/android-sdk-${OS}/tools:${HOME}/android-sdk-${OS}/platform-tools"
+export PATH="${PATH}:${HOME}/android-sdk-${OS}/tools:${HOME}/android-sdk-${OS}/platform-tools:${HOME}/android-studio/bin"
 export ANDROID_HOME=${HOME}/android-sdk-${OS}
+
+[ "${OS}" = "linux" ] && export ANDROID_NDK_HOME="${HOME}/android-ndk-r13b"
 
 # Credentials that apparently MUST be in the env :(
 if [ -e ${HOME}/.zsh.supersekrit ]; then
