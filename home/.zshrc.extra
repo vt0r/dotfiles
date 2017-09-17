@@ -43,7 +43,7 @@ fi
 export PATH="${PATH}:${HOME}/android-sdk-${OS}/tools:${HOME}/android-sdk-${OS}/platform-tools:${HOME}/android-studio/bin"
 export ANDROID_HOME=${HOME}/android-sdk-${OS}
 
-[ "${OS}" = "linux" ] && export ANDROID_NDK_HOME="${HOME}/android-ndk-r13b"
+[ "${OS}" = "linux" ] && export ANDROID_NDK_HOME="${HOME}/android-sdk-linux/ndk-bundle"
 
 # Credentials that apparently MUST be in the env :(
 if [ -e ${HOME}/.zsh.supersekrit ]; then
