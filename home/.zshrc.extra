@@ -40,7 +40,7 @@ if [ "$(uname -s)" = "Darwin" ]; then
 else
   OS="linux"
 fi
-export PATH="${PATH}:${HOME}/android-sdk-${OS}/tools:${HOME}/android-sdk-${OS}/platform-tools:${HOME}/android-studio/bin"
+export PATH="${PATH}:${HOME}/android-sdk-${OS}/tools:${HOME}/android-sdk-${OS}/platform-tools:${HOME}/android-studio/bin:${HOME}/android-standalone-toolchain/bin:${ANDROID_NDK_HOME}/toolchains/aarch64-linux-android-4.9"
 export ANDROID_HOME=${HOME}/android-sdk-${OS}
 
 [ "${OS}" = "linux" ] && export ANDROID_NDK_HOME="${HOME}/android-sdk-linux/ndk-bundle"
