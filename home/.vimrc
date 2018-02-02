@@ -22,6 +22,7 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'Raimondi/delimitMate'
+Plugin 'nathanaelkane/vim-indent-guides'
 " Syntastic stuff
 Plugin 'scrooloose/syntastic'
 let g:syntastic_error_symbol = '✘'
