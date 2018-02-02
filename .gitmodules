@@ -67,3 +67,6 @@
 [submodule ".vim/bundle/vim-chef"]
   path = .vim/bundle/vim-chef
   url = https://github.com/dougireton/vim-chef.git
+[submodule ".vim/bundle/vim-indent-guides"]
+	path = .vim/bundle/vim-indent-guides
+	url = https://github.com/nathanaelkane/vim-indent-guides.git
