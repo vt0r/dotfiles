@@ -11,8 +11,8 @@ export SSH_AUTH_SOCK=/run/user/1000/gnupg/S.gpg-agent.ssh
 
 # Smartcard quick eject
 AGENTSOCK=${HOME}/.gnupg/S.gpg-agent
-alias sceject='/usr/local/bin/gpg-connect-agent -S $AGENTSOCK "scd killscd" "scd bye" /bye'
-alias killsc='/usr/local/bin/gpg-connect-agent -S $AGENTSOCK "scd killscd" "scd bye" /bye'
+alias sceject='gpg-connect-agent -S $AGENTSOCK "scd killscd" "scd bye" /bye'
+alias killsc='gpg-connect-agent -S $AGENTSOCK "scd killscd" "scd bye" /bye'
 
 # PIP and Powerline
 if [ -d "${HOME}/.local/bin" ]; then
