@@ -1,0 +1,111 @@
+# Start up the gpg-agent if it's not already running
+if [ -e "/usr/local/bin/gpg-agent" ]; then
+  if ! gpg-connect-agent --quiet /bye >/dev/null 2>&1 ; then
+    /usr/local/bin/gpg-agent --options ${HOME}/.gnupg/gpg-agent.conf --daemon --enable-ssh-support >/dev/null 2>&1
+  fi
+fi
+
+# Work with new 2.1.x GPG agent
+#export SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh
+export SSH_AUTH_SOCK=/run/user/1000/gnupg/S.gpg-agent.ssh
+
+# Smartcard quick eject
+AGENTSOCK=${HOME}/.gnupg/S.gpg-agent
+alias sceject='gpg-connect-agent -S $AGENTSOCK "scd killscd" "scd bye" /bye'
+alias killsc='gpg-connect-agent -S $AGENTSOCK "scd killscd" "scd bye" /bye'
+
+# PIP and Powerline
+if [ -d "${HOME}/.local/bin" ]; then
+  PATH="${PATH}:${HOME}/.local/bin"
+fi
+export POWERLINE_COMMAND="powerline"
+
+# Umask
+umask 022
+
+# GOPATH
+export GOPATH="${HOME}/go"
+export PATH="/usr/local/go/bin:${GOPATH}/bin:${PATH}"
+export GOROOT="/usr/local/go"
+
+# Vim cat/less
+if [ -e /usr/local/bin/vimcat ]; then
+  alias vcat="/usr/local/bin/vimcat"
+  alias vless="/usr/local/bin/vimpager"
+fi
+
+# Android SDK/NDK generic
+if [ "$(uname -s)" = "Darwin" ]; then
+  OS="macosx"
+else
+  OS="linux"
+fi
+export PATH="${PATH}:${HOME}/android-sdk-${OS}/tools:${HOME}/android-sdk-${OS}/platform-tools:${HOME}/android-studio/bin:${HOME}/android-standalone-toolchain/bin:${ANDROID_NDK_HOME}/toolchains/aarch64-linux-android-4.9"
+export ANDROID_HOME=${HOME}/android-sdk-${OS}
+
+[ "${OS}" = "linux" ] && export ANDROID_NDK_HOME="${HOME}/android-sdk-linux/ndk-bundle"
+
+# Credentials that apparently MUST be in the env :(
+if [ -e ${HOME}/.bashrc.supersekrit ]; then
+  source ${HOME}/.bashrc.supersekrit >/dev/null 2>&1
+fi
+
+# Get current branch in git repo
+function parse_git_branch() {
+  BRANCH=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+  if [ ! "${BRANCH}" == "" ]; then
+    STAT=$(parse_git_dirty)
+    echo " \[\033[36m\][${BRANCH}\[\033[31m\]${STAT}\[\033[36m\]]\[\033[00m\]"
+  else
+    echo ""
+  fi
+}
+
+# get current status of git repo
+function parse_git_dirty {
+  status=$(git status 2>&1 | tee)
+  dirty=$(echo -n "${status}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?")
+  untracked=$(echo -n "${status}" 2> /dev/null | grep "Untracked files" &> /dev/null; echo "$?")
+  ahead=$(echo -n "${status}" 2> /dev/null | grep "Your branch is ahead of" &> /dev/null; echo "$?")
+  newfile=$(echo -n "${status}" 2> /dev/null | grep "new file:" &> /dev/null; echo "$?")
+  renamed=$(echo -n "${status}" 2> /dev/null | grep "renamed:" &> /dev/null; echo "$?")
+  deleted=$(echo -n "${status}" 2> /dev/null | grep "deleted:" &> /dev/null; echo "$?")
+  bits=''
+  if [ "${renamed}" == "0" ]; then
+    bits=">${bits}"
+  fi
+  if [ "${ahead}" == "0" ]; then
+    bits="*${bits}"
+  fi
+  if [ "${newfile}" == "0" ]; then
+    bits="+${bits}"
+  fi
+  if [ "${untracked}" == "0" ]; then
+    bits="?${bits}"
+  fi
+  if [ "${deleted}" == "0" ]; then
+    bits="x${bits}"
+  fi
+  if [ "${dirty}" == "0" ]; then
+    bits="!${bits}"
+  fi
+  if [ ! "${bits}" == "" ]; then
+    echo " ${bits}"
+  else
+    echo ""
+  fi
+}
+
+# Set the PS1 to have nice colors and include git details
+export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[34m\]\u\[\033[31m\]@\[\033[32m\]\h\[\033[00m\]:\[\033[34m\]\w\[\033[00m\]$(parse_git_branch)\$ "
+
+# Building CM within a year
+export USE_CCACHE=1
+
+# C2F and F2C
+c2f() {
+  awk "BEGIN { printf \"%.2f\n\", ${1} * 1.80 + 32.00 }"
+}
+f2c() {
+  awk "BEGIN { printf \"%.2f\n\", (${1} - 32) / 1.80 }"
+}
