@@ -134,6 +134,7 @@ alias sckill="killall -9 scdaemon"
 alias killsc="killall -9 scdaemon"
 
 # Homeshick
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 
 # Super-local stuff that will only clog up the actual .zshrc
