@@ -104,6 +104,29 @@ function set_ps1() {
 # Set the PS1 to have nice colors and include git details
 export PROMPT_COMMAND="set_ps1"
 
+# History shortcut keys
+if [ -t ] && [[ $- == *i* ]]; then
+  # tcsh-like kill-word for C-w
+  stty werase undef
+  bind '"\C-w": backward-kill-word'
+
+  # tcsh-like incremental history search
+  bind '"\C-[OA":        history-search-backward'
+  bind '"\C-[OB":        history-search-forward'
+  bind '"\C-[[A":        history-search-backward'
+  bind '"\C-[[B":        history-search-forward'
+fi
+
+# Permit color escapes
+export LESS="-R"
+
+# Extra fixes for history behavior
+export HISTSIZE=500000
+export HISTCONTROL=ignoredups
+export HISTTIMEFORMAT="%F %T "
+shopt -s histappend
+PROMPT_COMMAND="${PROMPT_COMMAND}; history -a"
+
 # Building CM within a year
 export USE_CCACHE=1
 
