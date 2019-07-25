@@ -8,4 +8,4 @@
 [alias]
 	pullmodules = !git submodule update --recursive --remote
 [credential]
-	helper = cache --timeout=86400
+	helper = store
