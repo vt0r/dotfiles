@@ -1,0 +1,11 @@
+[user]
+	email = salvatore@lamendola.me
+	name = Salvatore LaMendola
+[push]
+	default = current
+[pull]
+	rebase = true
+[alias]
+	pullmodules = !git submodule update --recursive --remote
+[credential]
+	helper = cache --timeout=86400
