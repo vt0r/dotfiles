@@ -25,8 +25,14 @@ umask 022
 
 # GOPATH
 export GOPATH="${HOME}/go"
-export PATH="/usr/local/go/bin:${GOPATH}/bin:${PATH}"
-export GOROOT="/usr/local/go"
+# Set GOROOT and prepend PATH
+if [ "$TERMUX" == "true" ]; then
+  golocation="/data/data/com.termux/files/usr/lib/go"
+else
+  golocation="/usr/local/go"
+fi
+export PATH="${golocation}/bin:${GOPATH}/bin:${PATH}"
+export GOROOT="${golocation}"
 
 # Vim cat/less
 if [ -e /usr/local/bin/vimcat ]; then

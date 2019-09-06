@@ -133,6 +133,9 @@ alias pw="gopwgen -a"
 alias sckill="killall -9 scdaemon"
 alias killsc="killall -9 scdaemon"
 
+# Check if we're running in Termux
+[[ "$SHELL" =~ .*termux.* ]] && export TERMUX="true"
+
 # Homeshick
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
