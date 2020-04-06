@@ -29,7 +29,7 @@ export GOPATH="${HOME}/go"
 if [ "$TERMUX" == "true" ]; then
   golocation="/data/data/com.termux/files/usr/lib/go"
 else
-  golocation="/usr/local/go"
+  golocation="/snap/go/current"
 fi
 export PATH="${golocation}/bin:${GOPATH}/bin:${PATH}"
 export GOROOT="${golocation}"
