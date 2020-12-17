@@ -9,3 +9,5 @@
 	pullmodules = !git submodule update --recursive --remote
 [credential]
 	helper = store
+[core]
+	eol = lf
