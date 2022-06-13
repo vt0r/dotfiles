@@ -11,3 +11,4 @@
 	helper = store
 [core]
 	eol = lf
+	excludesfile = ~/.gitignore
