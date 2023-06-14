@@ -122,8 +122,9 @@ fi
 ### BEGIN SAL'S CHANGES OVER UBUNTU DEFAULTS
 # Dircolors
 if [ "$(uname -s)" = "Darwin" ]; then
+  export PATH="/opt/homebrew/bin:${PATH}"
   eval $(gdircolors ~/dircolors-solarized/dircolors.ansi-dark)
-  alias ls="/usr/local/bin/gls --color=auto"
+  alias ls="/opt/homebrew/bin/gls --color=auto"
 else
   eval $(dircolors ~/dircolors-solarized/dircolors.ansi-dark)
 fi
