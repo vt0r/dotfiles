@@ -28,6 +28,8 @@ export GOPATH="${HOME}/go"
 # Set GOROOT and prepend PATH
 if [ "$TERMUX" == "true" ]; then
   golocation="/data/data/com.termux/files/usr/lib/go"
+elif [ "$(uname -s)" = "Darwin" ]; then
+  golocation="/opt/homebrew/opt/go/libexec"
 else
   golocation="/snap/go/current"
 fi
@@ -131,7 +133,7 @@ fi
 export LESS="-R"
 
 # Extra fixes for history behavior
-export HISTSIZE=500000
+export HISTSIZE=5000000
 export HISTCONTROL=ignoredups
 export HISTTIMEFORMAT="%F %T "
 shopt -s histappend
