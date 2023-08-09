@@ -125,6 +125,7 @@ if [ "$(uname -s)" = "Darwin" ]; then
   export PATH="/opt/homebrew/bin:${PATH}"
   eval $(gdircolors ~/dircolors-solarized/dircolors.ansi-dark)
   alias ls="/opt/homebrew/bin/gls --color=auto"
+  alias grep="/opt/homebrew/bin/ggrep --color=auto"
 else
   eval $(dircolors ~/dircolors-solarized/dircolors.ansi-dark)
 fi
