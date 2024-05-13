@@ -5,4 +5,4 @@ test -e "${HOME}/.bashrc" && source "${HOME}/.bashrc"
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 # Run fastfetch if installed
-test -x "$(which fastfetch)" && fastfetch && echo ""
+test -x "$(which fastfetch 2>/dev/null)" && fastfetch && echo ""
