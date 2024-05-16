@@ -1,5 +1,7 @@
-# Pull in defaults from homeshick + dotfiles
-test -e "${HOME}/.bashrc" && source "${HOME}/.bashrc"
+# Pull in defaults from homeshick + dotfiles - only on Bash
+if [ ! -n "$BASH" ]; then
+  test -e "${HOME}/.bashrc" && source "${HOME}/.bashrc"
+fi
 
 # Enable iTerm2 shell integration when present - Mac only
 if [ "$(uname -s)" = "Darwin" ]; then
