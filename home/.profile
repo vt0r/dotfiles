@@ -1,5 +1,5 @@
 # Pull in defaults from homeshick + dotfiles - only on Bash
-if [ ! -n "$BASH" ]; then
+if [ -n "$BASH" ]; then
   test -e "${HOME}/.bashrc" && source "${HOME}/.bashrc"
 fi
 
