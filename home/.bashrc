@@ -120,8 +120,19 @@ fi
 
 
 ### BEGIN SAL'S CHANGES OVER UBUNTU DEFAULTS
+export UNAME_S="$(uname -s)"
+
+# Am I on a Mac?
+function is_macos() {
+  if [ "$UNAME_S" == "Darwin" ]; then
+    ((1))
+  else
+    ((0))
+  fi
+}
+
 # Dircolors
-if [ "$(uname -s)" = "Darwin" ]; then
+if [ is_macos ]; then
   export PATH="/opt/homebrew/sbin:/opt/homebrew/bin:${PATH}"
   eval $(gdircolors ~/dircolors-solarized/dircolors.ansi-dark)
   alias ls="/opt/homebrew/bin/gls --color=auto"
