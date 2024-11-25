@@ -28,7 +28,7 @@ export GOPATH="${HOME}/go"
 # Set GOROOT and prepend PATH
 if [ "$TERMUX" == "true" ]; then
   golocation="/data/data/com.termux/files/usr/lib/go"
-elif [ is_macos ]; then
+elif is_macos; then
   golocation="/opt/homebrew/opt/go/libexec"
 else
   golocation="/snap/go/current"
@@ -47,7 +47,7 @@ alias gco="git checkout"
 alias gcp="git cherry-pick -x"
 
 # Android SDK/NDK generic
-if [ is_macos ]; then
+if is_macos; then
   OS="macosx"
 else
   OS="linux"
@@ -151,12 +151,12 @@ f2c() {
 }
 
 # Add Visual Studio Code CLI shortcut on macOS (code)
-if [ is_macos ]; then
+if is_macos; then
   export PATH="${PATH}:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 fi
 
 # SSH SK support via libfido2 for Yubikey SSH keys
-if [ is_macos ]; then
+if is_macos; then
   export SSH_SK_PROVIDER="/usr/local/lib/libsk-libfido2.dylib"
   export SSH_ASKPASS="/opt/homebrew/bin/ssh-askpass"
 fi

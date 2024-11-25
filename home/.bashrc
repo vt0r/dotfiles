@@ -132,7 +132,7 @@ function is_macos() {
 }
 
 # Dircolors
-if [ is_macos ]; then
+if is_macos; then
   export PATH="/opt/homebrew/sbin:/opt/homebrew/bin:${PATH}"
   eval $(gdircolors ~/dircolors-solarized/dircolors.ansi-dark)
   alias ls="/opt/homebrew/bin/gls --color=auto"
