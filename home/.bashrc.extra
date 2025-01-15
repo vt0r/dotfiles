@@ -160,3 +160,8 @@ if is_macos; then
   export SSH_SK_PROVIDER="/usr/local/lib/libsk-libfido2.dylib"
   export SSH_ASKPASS="/opt/homebrew/bin/ssh-askpass"
 fi
+
+# Podman GPU support
+if is_macos; then
+  export CONTAINERS_MACHINE_PROVIDER=libkrun
+fi
