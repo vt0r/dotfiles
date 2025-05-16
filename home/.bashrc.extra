@@ -162,9 +162,9 @@ if is_macos; then
 fi
 
 # Podman GPU support
-if is_macos; then
-  export CONTAINERS_MACHINE_PROVIDER=libkrun
-fi
+#if is_macos; then
+#  export CONTAINERS_MACHINE_PROVIDER=libkrun
+#fi
 
 # k alias
 alias k="kubectl"
