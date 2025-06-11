@@ -1,0 +1,15 @@
+# Ghostty config by Sal
+confirm-close-surface = false
+cursor-style = "block"
+font-family = "JetBrains Mono"
+font-size = 14
+font-style = "SemiBold"
+keybind = super+left=previous_tab
+keybind = super+right=next_tab
+keybind = shift+page_down=scroll_page_down
+keybind = shift+page_up=scroll_page_up
+macos-option-as-alt = true
+shell-integration-features = "no-cursor, sudo"
+theme = "dark:Builtin Solarized Dark,light:Builtin Solarized Dark"
+window-height = 46
+window-width = 148
