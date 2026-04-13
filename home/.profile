@@ -10,3 +10,8 @@ fi
 
 # Run fastfetch if installed
 test -x "$(which fastfetch 2>/dev/null)" && fastfetch && echo ""
+
+# Setting PATH for Python 3.14
+# The original version is saved in .profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.14/bin:${PATH}"
+export PATH

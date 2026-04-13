@@ -8,8 +8,9 @@ keybind = super+left=previous_tab
 keybind = super+right=next_tab
 keybind = shift+page_down=scroll_page_down
 keybind = shift+page_up=scroll_page_up
+keybind = performable:ctrl+c=copy_to_clipboard:plain
 macos-option-as-alt = true
-shell-integration-features = "no-cursor, sudo"
-theme = "dark:Builtin Solarized Dark,light:Builtin Solarized Dark"
+shell-integration-features = "no-cursor,ssh-terminfo,ssh-env,sudo"
+theme = "dark:iTerm2 Solarized Dark,light:iTerm2 Solarized Light"
 window-height = 46
 window-width = 148

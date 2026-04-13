@@ -15,3 +15,5 @@
 [core]
 	eol = lf
 	excludesfile = ~/.gitignore
+[init]
+	defaultBranch = main
