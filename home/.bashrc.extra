@@ -168,3 +168,6 @@ fi
 
 # k alias
 alias k="kubectl"
+
+# gsed over sed all day
+alias sed="gsed"
