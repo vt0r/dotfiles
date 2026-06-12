@@ -166,8 +166,12 @@ fi
 #  export CONTAINERS_MACHINE_PROVIDER=libkrun
 #fi
 
-# k alias
-alias k="kubectl"
-
 # gsed over sed all day
-alias sed="gsed"
+if is_macos; then
+  alias sed="gsed"
+fi
+
+# kubectl_aliases
+function kubectl() { echo "+ kubectl $@" >&2; command kubectl "$@"; }
+[ -f ~/kubectl-aliases/.kubectl_aliases ] && source \
+   <(cat ~/kubectl-aliases/.kubectl_aliases | sed -r 's/(kubectl.*) --watch/watch \1/g')
