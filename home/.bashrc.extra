@@ -1,19 +1,3 @@
-# Start up the gpg-agent if it's not already running
-#if [ -e "/usr/local/bin/gpg-agent" ]; then
-#  if ! gpg-connect-agent --quiet /bye >/dev/null 2>&1 ; then
-#    /usr/local/bin/gpg-agent --options ${HOME}/.gnupg/gpg-agent.conf --daemon --enable-ssh-support >/dev/null 2>&1
-#  fi
-#fi
-
-# Work with new 2.1.x GPG agent
-#export SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh
-#export SSH_AUTH_SOCK=/run/user/1000/gnupg/S.gpg-agent.ssh
-
-# Smartcard quick eject
-#AGENTSOCK=${HOME}/.gnupg/S.gpg-agent
-#alias sceject='gpg-connect-agent -S $AGENTSOCK "scd killscd" "scd bye" /bye'
-#alias killsc='gpg-connect-agent -S $AGENTSOCK "scd killscd" "scd bye" /bye'
-
 # PIP and Powerline
 if [ -d "${HOME}/.local/bin" ]; then
   PATH="${PATH}:${HOME}/.local/bin"
@@ -56,11 +40,6 @@ export PATH="${PATH}:${HOME}/android-sdk-${OS}/tools:${HOME}/android-sdk-${OS}/p
 export ANDROID_HOME=${HOME}/android-sdk-${OS}
 
 [ "${OS}" = "linux" ] && export ANDROID_NDK_HOME="${HOME}/android-sdk-linux/ndk-bundle"
-
-# Credentials that apparently MUST be in the env :(
-if [ -e ${HOME}/.bashrc.supersekrit ]; then
-  source ${HOME}/.bashrc.supersekrit >/dev/null 2>&1
-fi
 
 # Get current branch in git repo
 function parse_git_branch() {
@@ -139,9 +118,6 @@ export HISTTIMEFORMAT="%F %T "
 shopt -s histappend
 PROMPT_COMMAND="${PROMPT_COMMAND}; history -a"
 
-# Building CM within a year
-export USE_CCACHE=1
-
 # C2F and F2C
 c2f() {
   awk "BEGIN { printf \"%.2f\n\", ${1} * 1.80 + 32.00 }"
@@ -175,3 +151,8 @@ fi
 function kubectl() { echo "+ kubectl $@" >&2; command kubectl "$@"; }
 [ -f ~/kubectl-aliases/.kubectl_aliases ] && source \
    <(cat ~/kubectl-aliases/.kubectl_aliases | sed -r 's/(kubectl.*) --watch/watch \1/g')
+
+# Credentials that apparently MUST be in the env :( - keep this junk at the end
+if [ -e ${HOME}/.bashrc.supersekrit ]; then
+  source ${HOME}/.bashrc.supersekrit >/dev/null 2>&1
+fi
