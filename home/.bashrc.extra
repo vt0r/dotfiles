@@ -2,7 +2,6 @@
 if [ -d "${HOME}/.local/bin" ]; then
   PATH="${PATH}:${HOME}/.local/bin"
 fi
-export POWERLINE_COMMAND="powerline"
 
 # Umask
 umask 022
@@ -20,26 +19,9 @@ fi
 export PATH="${golocation}/bin:${GOPATH}/bin:${PATH}"
 export GOROOT="${golocation}"
 
-# Vim cat/less
-if [ -e /usr/local/bin/vimcat ]; then
-  alias vcat="/usr/local/bin/vimcat"
-  alias vless="/usr/local/bin/vimpager"
-fi
-
 # Git aliases
 alias gco="git checkout"
 alias gcp="git cherry-pick -x"
-
-# Android SDK/NDK generic
-if is_macos; then
-  OS="macosx"
-else
-  OS="linux"
-fi
-export PATH="${PATH}:${HOME}/android-sdk-${OS}/tools:${HOME}/android-sdk-${OS}/platform-tools:${HOME}/android-studio/bin:${HOME}/android-standalone-toolchain/bin:${ANDROID_NDK_HOME}/toolchains/aarch64-linux-android-4.9"
-export ANDROID_HOME=${HOME}/android-sdk-${OS}
-
-[ "${OS}" = "linux" ] && export ANDROID_NDK_HOME="${HOME}/android-sdk-linux/ndk-bundle"
 
 # Get current branch in git repo
 function parse_git_branch() {

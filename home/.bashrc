@@ -136,7 +136,7 @@ function is_macos() {
   fi
 }
 
-# Dircolors
+# Dircolors - keep the Solarized one...
 if is_macos; then
   export PATH="/opt/homebrew/sbin:/opt/homebrew/bin:${PATH}"
   eval $(gdircolors ~/dircolors-solarized/dircolors.ansi-dark)
@@ -146,24 +146,33 @@ else
   eval $(dircolors ~/dircolors-solarized/dircolors.ansi-dark)
 fi
 
-# Password generator
-alias pw="gopwgen -a"
+# ...but apply the Selenized fixes on top
+export LS_COLORS="${LS_COLORS}:ow=1;7;34:st=30;44:su=30;41"
 
-# Kill the SC daemon
-alias sckill="killall -9 scdaemon"
-alias killsc="killall -9 scdaemon"
+# Also enable some really nice looking man page output for Selenized
+function man() {
+  env \
+    LESS_TERMCAP_mb=$(printf "\e[1;34m") \
+    LESS_TERMCAP_md=$(printf "\e[1;34m") \
+    LESS_TERMCAP_me=$(printf "\e[0m") \
+    LESS_TERMCAP_se=$(printf "\e[0m") \
+    LESS_TERMCAP_so=$(printf "\e[30;39;100m") \
+    LESS_TERMCAP_ue=$(printf "\e[0m") \
+    LESS_TERMCAP_us=$(printf "\e[4;36m") \
+    PAGER="${commands[less]:-$PAGER}" \
+    _NROFF_U=1 \
+    GROFF_NO_SGR=1 \
+    PATH="${HOME}/bin:${PATH}" \
+  man "$@"
+}
 
 # Check if we're running in Termux
 [[ "$SHELL" =~ .*termux.* ]] && export TERMUX="true"
 
 # Homeshick
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
+source "${HOME}/.homesick/repos/homeshick/homeshick.sh"
+source "${HOME}/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 
-# Super-local stuff that will only clog up the actual .zshrc
-source "$HOME/.bashrc.extra"
-
-# rbenv stuff
-export PATH="$HOME/.rbenv/bin:$PATH"
-which rbenv >/dev/null 2>&1 && eval "$(rbenv init -)"
+# Super-local stuff that will only clog up the actual .bashrc
+source "${HOME}/.bashrc.extra"
 ### END SAL'S CHANGES
