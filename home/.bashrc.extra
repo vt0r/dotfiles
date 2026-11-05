@@ -95,6 +95,7 @@ export LESS="-R"
 
 # Extra fixes for history behavior
 export HISTSIZE=5000000
+export HISTFILESIZE=5000000
 export HISTCONTROL=ignoredups
 export HISTTIMEFORMAT="%F %T "
 shopt -s histappend
